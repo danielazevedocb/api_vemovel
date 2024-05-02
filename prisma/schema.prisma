@@ -1,0 +1,22 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model FormPgto {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  NCOND      Int     @unique 
+  CONDICAO   String
+  ACRESCIMO  Float?
+  DESCONTO   Float?
+  PRAZOMEDIO Int?
+  VALORMINIMO Float?
+  USACAIXA  String?
+  MODOSPAGTO String?
+  @@map("formPgto")
+}
